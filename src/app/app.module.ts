@@ -5,21 +5,39 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { ModalEventPage } from '../pages/modal-event/modal-event';
+import { ModalPricePage } from '../pages/modal-price/modal-price';
+import { HeaderComponent } from '../components/header/header';
+import { FooterComponent } from '../components/footer/footer';
+import { TabsComponent } from '../components/tabs/tabs';
+import { CalendarPage } from '../pages/calendar/calendar';
+import { MoneyPage } from '../pages/money/money';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    ModalEventPage,
+    HeaderComponent,
+    FooterComponent,
+    TabsComponent,
+    CalendarPage,
+    MoneyPage,
+    ModalPricePage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    ModalEventPage,
+    HeaderComponent,
+    TabsComponent,
+    CalendarPage,
+    MoneyPage,
+    ModalPricePage
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,44 @@
+<ion-content>
+
+    <app-header title="Dinero"></app-header>
+
+        <div padding-top>
+        <ion-list padding-top>
+            <ion-item>
+                <ion-label>Elegir mes</ion-label>
+                <ion-select [(ngModel)]="month" multiple="false" cancelText="Volver" okText="Elegir">
+                <ion-option value="a" selected="true">Agosto</ion-option>
+                <ion-option value="b">Septiembre</ion-option>
+                <ion-option value="c">Octubre</ion-option>
+                <ion-option value="d">Noviembre</ion-option>
+                <ion-option value="e">Diciembre</ion-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+        <h3 ion-text text-center color="secondary" class="fs-75"><ion-icon name="logo-usd"></ion-icon></h3>
+        <p ion-text text-center color="secondary" class="bold fs-20">3000$</p>
+
+        <h3 ion-text padding-left color="primary">Precios</h3>
+        <ion-item-group>
+            <ion-item-divider>
+                <span class="c-black">Clases</span>
+            </ion-item-divider>
+            <ion-item>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-8 text-left>
+                                <span class="c-grey text-left">1 Abono - 4 clases - 1 persona</span>
+                        </ion-col>
+                        <ion-col col-2 text-right>
+                            <span class="c-green">$1200</span>
+                        </ion-col>
+                        <ion-col col-2>
+                            <ion-icon (click)="openModal()" class="c-primary" name="settings"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-item-group>
+        </div>
+
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar *ngIf="title">
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+  <ion-toolbar *ngIf="subtitle">
+    <ion-title>{{subtitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-container *ngIf="title">
+    <br>
+</ng-container>
+<ng-container *ngIf="subtitle">
+    <br><br>
+</ng-container>
