@@ -7,21 +7,27 @@
             <ion-item>
                 <ion-label>Elegir mes</ion-label>
                 <ion-select [(ngModel)]="month" multiple="false" cancelText="Volver" okText="Elegir">
-                <ion-option value="a" selected="true">Agosto</ion-option>
-                <ion-option value="b">Septiembre</ion-option>
-                <ion-option value="c">Octubre</ion-option>
-                <ion-option value="d">Noviembre</ion-option>
-                <ion-option value="e">Diciembre</ion-option>
+                <ion-option value="08" selected="true">Agosto</ion-option>
+                <ion-option value="09">Septiembre</ion-option>
+                <ion-option value="10">Octubre</ion-option>
+                <ion-option value="11">Noviembre</ion-option>
+                <ion-option value="12">Diciembre</ion-option>
                 </ion-select>
             </ion-item>
         </ion-list>
         <h3 ion-text text-center color="secondary" class="fs-75"><ion-icon name="logo-usd"></ion-icon></h3>
         <p ion-text text-center color="secondary" class="bold fs-20">3000$</p>
+        <div text-center>
+            <button ion-button round>Ver</button>
+        </div>
+        <br>
 
-        <h3 ion-text padding-left color="primary">Precios</h3>
+        <ion-item-divider>
+            <h3 ion-text color="primary" style="font-size:20px;">Precios</h3>
+        </ion-item-divider>
         <ion-item-group>
             <ion-item-divider>
-                <span class="c-black">Clases</span>
+                <p class="c-black text-left">Clases</p>
             </ion-item-divider>
             <ion-item>
                 <ion-grid>

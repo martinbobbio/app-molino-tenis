@@ -1,0 +1,37 @@
+<ion-content>
+
+    <h3 ion-text text-center color="primary">Inicia sesión</h3><br>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col col-3>
+            </ion-col>
+            <ion-col col-6>
+                <img src="assets/imgs/logo.png">
+            </ion-col>
+            <ion-col col-3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <br><br>
+
+    <form (ngSubmit)="loginForm()" [formGroup]="form" novalidate="novalidate" method="post">
+        <ion-item padding>
+            <ion-label text-left color="primary" stacked>Usuario</ion-label>
+            <ion-input type="text" placeholder="Ingresa tu usuario" formControlName="username" class='validate' type='text' name='username' id='username'></ion-input>
+        </ion-item>
+
+        <ion-item padding>
+            <ion-label text-left color="primary" stacked>Contraseña</ion-label>
+            <ion-input type="password" placeholder="Ingresa tu contraseña" formControlName="password" class='validate' type='password' name='password' id='password'></ion-input>
+        </ion-item>
+
+        <br>
+        <button ion-button full>Ingresar</button>
+    </form>
+
+    <br>
+    <p ion-text text-center color="danger">{{warning}}</p>
+
+</ion-content>

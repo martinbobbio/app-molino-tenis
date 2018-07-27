@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
 import * as moment from 'moment';
 
 
