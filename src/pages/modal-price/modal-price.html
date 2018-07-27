@@ -1,4 +1,57 @@
 <ion-content padding>
-  <app-header [title]="title" [subtitle]="subtitle"></app-header>x
+  <app-header [title]="title" [subtitle]="subtitle"></app-header>
+  
+
+  <ng-container *ngIf="method == 'edit'">
+    <br><br>
+    <h2 ion-text margin-top color="primary" class="bold">Editar precio</h2>
+
+    <ion-list>
+        
+      <ion-item>
+        <ion-label fixed>Nombre</ion-label>
+        <ion-input type="text" value="asd"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Precio</ion-label>
+        <ion-input type="number" value="500"></ion-input>
+      </ion-item>
+
+      <div text-center margin-top>
+          <button ion-button round color="primary">Editar</button>
+      </div>
+
+    </ion-list>
+  </ng-container>
+
+  <ng-container *ngIf="method == 'add'">
+    <br>
+    <h2 ion-text margin-top color="secondary" class="bold">Nuevo precio</h2>
+
+    <ion-item>
+        <ion-label fixed>Nombre</ion-label>
+        <ion-input type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Precio</ion-label>
+        <ion-input type="number"></ion-input>
+      </ion-item>
+
+      <ion-list>
+          <ion-item>
+              <ion-label>Elegir tipo</ion-label>
+              <ion-select [(ngModel)]="type" multiple="false" cancelText="Volver" okText="Elegir tipo">
+              <ion-option value="1" selected="true">Alquiler</ion-option>
+              <ion-option value="2">Clase de dani</ion-option>
+              </ion-select>
+          </ion-item>
+      </ion-list>
+
+      <div text-center margin-top>
+          <button ion-button round color="secondary">Crear</button>
+      </div>
+  </ng-container>
+
+
   <app-footer title="Volver" color="#e53935" modalDismiss=true></app-footer>
 </ion-content>

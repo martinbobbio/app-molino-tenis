@@ -17,8 +17,8 @@ import { TabsComponent } from '../components/tabs/tabs';
 import { CalendarPage } from '../pages/calendar/calendar';
 import { MoneyPage } from '../pages/money/money';
 import { LoginPage } from '../pages/login/login';
-
-
+import { HistoryPage } from '../pages/history/history';
+import { NotesPage } from '../pages/notes/notes';
 
 
 @NgModule({
@@ -32,6 +32,8 @@ import { LoginPage } from '../pages/login/login';
     MoneyPage,
     ModalPricePage,
     LoginPage,
+    HistoryPage,
+    NotesPage,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,8 @@ import { LoginPage } from '../pages/login/login';
     MoneyPage,
     ModalPricePage,
     LoginPage,
+    HistoryPage,
+    NotesPage,
   ],
   providers: [
     StatusBar,

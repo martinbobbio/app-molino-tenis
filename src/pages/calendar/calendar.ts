@@ -18,6 +18,14 @@ export class CalendarPage {
           defaultView: 'list',
           height: 500,
           timeFormat: 'HH:mm',
+          customButtons: {
+            myCustomButton: {
+              text: 'Agregar...',
+              click: function() {
+                
+              }
+            }
+          },
           buttonText: {
             today:    'Hoy',
             month:    'Mes',
@@ -46,7 +54,7 @@ export class CalendarPage {
             }
           ],
           header: {
-            left: 'prev,next today',
+            left: 'prev,next today,myCustomButton',
             center: 'title',
             right: 'month,agendaDay,list'
         },

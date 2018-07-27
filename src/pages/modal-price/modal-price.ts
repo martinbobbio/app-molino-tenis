@@ -9,10 +9,15 @@ export class ModalPricePage {
 
   title:string;
   subtitle:string;
+  method:string;
+  type:string;
 
   constructor(public params: NavParams) {
     this.title = params.get('title');
-    this.subtitle = params.get('price')+"$";
+    this.method = params.get('method');
+    if(this.method == "edit"){
+      this.subtitle = params.get('price')+"$";
+    }
     
   }
 
