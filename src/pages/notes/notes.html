@@ -4,23 +4,23 @@
     <br><br>
 
     <div text-left margin-left margin-top>
-        <button ion-button round color="secondary">Crear nota</button>
+        <button (click)="createNotice()" ion-button round color="secondary">Crear nota</button>
     </div>
 
-    <ion-card>
+    <ion-card *ngFor="let notice of notes">
 
         <ion-item>
             <ion-avatar item-start>
-            <img src="assets/imgs/martinbobbio.jpg">
+            <img src="{{pathBack}}/images/{{userPhoto}}">
             </ion-avatar>
-            <h2 class="bold" ion-text color="primary">Martín Bobbio</h2>
-            <p style="margin-top:4px;">Tareas</p>
+            <h2 class="bold" ion-text color="primary">{{notice.firstname}} {{notice.lastname}}</h2>
+            <p style="margin-top:4px;">{{notice.title}}</p>
         </ion-item>
 
-        <img src="assets/imgs/cancha.jpg">
+        <img *ngIf="notice.imgsrc" src="{{pathBack}}/{{notice.imgsrc}}">
 
         <ion-card-content>
-            <p>Hay que limbiar las hojas.</p>
+            <p [innerHtml]="notice.description"></p>
         </ion-card-content>
 
         <ion-row>
@@ -28,12 +28,12 @@
             <ion-col col-4>
             <button ion-button icon-start clear small>
                 <ion-icon name="trash" color="danger"></ion-icon>
-                <div ion-text color="danger">Eliminar</div>
+                <div (click)="deleteNotice(notice.id)" ion-text color="danger">Eliminar</div>
             </button>
             </ion-col>
             <ion-col col-6 style="margin-top:4px;">
                 <ion-note>
-                    24/02/2018 21:33hs
+                    {{notice.date}}
                 </ion-note>
             </ion-col>
         </ion-row>

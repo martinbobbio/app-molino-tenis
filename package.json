@@ -1,7 +1,7 @@
 {
   "name": "molino",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "version": "1.0.0",
+  "author": "Martin Bobbio",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
@@ -39,7 +39,7 @@
     "@types/jquery": "^3.2.16",
     "typescript": "~2.6.2"
   },
-  "description": "An Ionic project",
+  "description": "Aplicación administrativa de un club de tenis",
   "cordova": {
     "plugins": {
       "cordova-plugin-splashscreen": {}

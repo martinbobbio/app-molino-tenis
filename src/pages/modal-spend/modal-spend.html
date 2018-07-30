@@ -1,0 +1,61 @@
+<ion-content padding>
+  <app-header [title]="title"></app-header>
+
+    <ng-container *ngIf="method == 'add'">
+        <br>
+        <h2 ion-text margin-top color="secondary" class="bold">Nueva recaudación</h2>
+
+        <form (ngSubmit)="submitForm()" [formGroup]="form" novalidate="novalidate" method="post">
+
+            <ion-item>
+                <ion-label color="secondary" stacked>Persona</ion-label>
+                <ion-input type="text" formControlName="title" placeholder="¿Quién pago?"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label color="secondary" stacked>Precio</ion-label>
+                <ion-input  formControlName="price" type="number" placeholder="Dinero $"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label color="secondary" stacked>Cantidad</ion-label>
+                <ion-input type="number" formControlName="count" type="number" value="1" min=1 max=100></ion-input>
+            </ion-item>
+
+            <ion-list>
+                <ion-item>
+                    <ion-label color="secondary" stacked>Tipo</ion-label>
+                    <ion-select formControlName="type" multiple="false" cancelText="Volver" okText="Elegir tipo">
+                        <ion-option disabled="true" selected="true">No elegiste el tipo</ion-option>
+                        <ion-option *ngFor="let type of types;let i = index" value="{{i}}">{{type.title}}</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+
+            <div text-center margin-top>
+                <button ion-button round color="secondary">Crear</button>
+            </div>
+
+        </form>
+    </ng-container>
+
+    <ng-container *ngIf="method == 'view'">
+        <ion-item *ngFor="let spend of spends">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-8 text-left>
+                            <span class="c-grey text-left">{{spend.title}} x {{spend.count}}</span>
+                    </ion-col>
+                    <ion-col col-3 text-right>
+                        <span class="c-green">${{spend.total}}</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="deleteSpend(spend.id)" color="danger" name="trash"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ng-container>
+
+
+  <app-footer title="Volver" color="#e53935" modalDismiss=true></app-footer>
+</ion-content>

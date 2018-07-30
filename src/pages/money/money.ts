@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
-import { ModalPricePage } from '../../pages/modal-price/modal-price';
-import { AlertController } from 'ionic-angular';
+import { MoneyService } from '../../providers/money/money.service'
+import { ModalSpendPage } from '../../pages/modal-spend/modal-spend';
+import { ModalController, LoadingController } from 'ionic-angular';
 
 @Component({
   selector: 'money',
@@ -9,40 +9,60 @@ import { AlertController } from 'ionic-angular';
 })
 export class MoneyPage {
 
-  month:string;
+  month:string = "07"
+  monthString:string = ""
+  monthAmount:number = 0
 
-  constructor(public modalCtrl: ModalController,private alertCtrl: AlertController) {
-   
+  constructor(public moneyService:MoneyService, public modalCtrl:ModalController,public loadingCtrl: LoadingController) {
+    this.getSpendByMonth(this.month)
   }
 
-  openModal(){
-    let modal = this.modalCtrl.create(ModalPricePage, { id: 1, title: "PEPITO", price: 1200, method: "edit" });
-   modal.present();
+  changeMonth(event){
+    this.getSpendByMonth(event)
   }
 
-  deletePrice() {
-    let alert = this.alertCtrl.create({
-      title: 'Borrar precio',
-      message: 'Estás seguro que queres borrar el precio?',
-      buttons: [
-        {
-          text: 'Cancelar',
-          handler: () => {
-          }
-        },
-        {
-          text: 'Borrar',
-          handler: () => {
-          }
-        }
-      ]
+  getSpendByMonth(month){
+    let loading = this.loadingCtrl.create({
+      content: 'Cargando dinero mensual...'
     });
-    alert.present();
+    loading.present();
+    this.moneyService.getSpendByMonth(month).subscribe(
+      (response)=>{
+        this.monthAmount = response.data[0]["total"]
+        loading.dismiss();
+      })
   }
 
-  addPrice(){
-    let modal = this.modalCtrl.create(ModalPricePage, { title: "Agregar precio", method: "add" });
+  newSpend(){
+    let modal = this.modalCtrl.create(ModalSpendPage,{method:"add",title:"Nueva Recaudación"});
     modal.present();
+    modal.onDidDismiss(data => {
+      this.getSpendByMonth(this.month)
+   });
+  }
+  viewSpend(){
+    this.getMonthString()
+    let modal = this.modalCtrl.create(ModalSpendPage,{method:"view",title:"Dinero de "+this.monthString,month:this.month});
+    modal.present();
+    modal.onDidDismiss(data => {
+      this.getSpendByMonth(this.month)
+   });
+  }
+
+  getMonthString(){
+    if(this.month == "07")
+      this.monthString = "Julio"
+    else if(this.month == "08")
+      this.monthString = "Agosto"
+    else if(this.month == "09")
+      this.monthString = "Septiembre"
+    else if(this.month == "10")
+      this.monthString = "Octubre"
+    else if(this.month == "11")
+      this.monthString = "Noviembre"
+    else if(this.month == "12")
+      this.monthString = "Diciembre"
+    
   }
 
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, URLSearchParams  } from '@angular/http'
 import 'rxjs/add/operator/map'
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -22,6 +22,13 @@ export class AuthService {
     let body = urlSearchParams.toString();
 
     return this.http.post(`${this.backUrl}/api/auth/login`,body, {headers: headers}).map(
+      (response) => response.json()
+    )
+  }
+
+  getLogs(){
+
+    return this.http.get(`${this.backUrl}/api/log/get-logs/`).map(
       (response) => response.json()
     )
   }

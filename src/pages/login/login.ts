@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { AuthService } from '../../providers/auth.service';
+import { AuthService } from '../../providers/auth/auth.service';
 import { TabsComponent } from '../../components/tabs/tabs';
 import { NavController } from 'ionic-angular';
 
@@ -39,10 +39,14 @@ export class LoginPage {
             this.form.reset({
               password:"",
             });
-            localStorage.setItem("user_id","1");
-            this.navCtrl.push(TabsComponent);
             return;
           }else{
+            let user = response.data[0]
+            localStorage.setItem("user_id",user["id"])
+            localStorage.setItem("user_firstname",user["firstname"])
+            localStorage.setItem("user_lastname",user["lastname"])
+            localStorage.setItem("user_username",user["username"])
+            localStorage.setItem("user_photo",user["photo"])
             this.navCtrl.push(TabsComponent);
           }
         } ,

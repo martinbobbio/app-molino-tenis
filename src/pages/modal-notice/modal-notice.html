@@ -1,0 +1,23 @@
+<ion-content padding>
+  <app-header title="Nueva nota"></app-header>
+
+    <br>
+    <h2 ion-text margin-top color="secondary" class="bold">Nuevo nota</h2>
+
+    <form (ngSubmit)="submitForm()" [formGroup]="form" novalidate="novalidate" method="post">
+      <ion-item>
+        <ion-label color="secondary" stacked>Título</ion-label>
+        <ion-input formControlName="title" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary" stacked>Descripción</ion-label>
+        <ion-textarea formControlName="description" placeholder="Descripción de la nota..."></ion-textarea>
+      </ion-item>
+
+      <div text-center margin-top>
+          <button ion-button round color="secondary">Crear</button>
+      </div>
+    </form>
+
+  <app-footer title="Volver" color="#e53935" modalDismiss=true></app-footer>
+</ion-content>

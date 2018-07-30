@@ -3,63 +3,28 @@
     <app-header title="Dinero"></app-header>
 
         <div padding-top>
-        <ion-list padding-top>
-            <ion-item>
-                <ion-label>Elegir mes</ion-label>
-                <ion-select [(ngModel)]="month" multiple="false" cancelText="Volver" okText="Elegir">
-                <ion-option value="08" selected="true">Agosto</ion-option>
-                <ion-option value="09">Septiembre</ion-option>
-                <ion-option value="10">Octubre</ion-option>
-                <ion-option value="11">Noviembre</ion-option>
-                <ion-option value="12">Diciembre</ion-option>
-                </ion-select>
-            </ion-item>
-        </ion-list>
-        <h3 ion-text text-center color="secondary" class="fs-75"><ion-icon name="logo-usd"></ion-icon></h3>
-        <p ion-text text-center color="secondary" class="bold fs-20">3000$</p>
-        <div text-center>
-            <button ion-button round color="secondary">Agregar</button>
-            <button ion-button round color="secondary">Ver todos</button>
-        </div>
-        <br>
+            <ion-list padding-top>
+                <ion-item>
+                    <ion-label>Elegir mes</ion-label>
+                    <ion-select (ngModelChange)="changeMonth($event)" [(ngModel)]="month" multiple="false" cancelText="Volver" okText="Elegir">
+                    <ion-option value="07">Julio</ion-option>
+                    <ion-option value="08" selected="true">Agosto</ion-option>
+                    <ion-option value="09">Septiembre</ion-option>
+                    <ion-option value="10">Octubre</ion-option>
+                    <ion-option value="11">Noviembre</ion-option>
+                    <ion-option value="12">Diciembre</ion-option>
+                    </ion-select>
+                </ion-item>
+            </ion-list>
+            <h3 ion-text text-center color="secondary" class="fs-75"><ion-icon name="logo-usd"></ion-icon></h3>
+            <p ion-text text-center color="secondary" class="bold fs-20">{{monthAmount}}$</p>
+            <div text-center>
+                <button (click)="newSpend()" ion-button round color="secondary">Agregar</button>
+                <button (click)="viewSpend()" ion-button round color="secondary">Ver todos</button>
+            </div>
+            <br>
 
-        <ion-item-divider>
-            <ion-grid>
-                    <ion-row>
-                        <ion-col col-7 text-right>
-                            <h3 ion-text color="primary" style="font-size:20px;">Precios</h3>
-                        </ion-col>
-                        <ion-col col-3></ion-col>
-                        <ion-col col-2 text-center>
-                            <ion-icon (click)="addPrice()" style="font-size:30px;" text-right color="secondary" name="add-circle"></ion-icon>
-                        </ion-col>
-                    </ion-row>
-            </ion-grid>
-        </ion-item-divider>
-
-        <ion-item-group>
-            <ion-item-divider>
-                <p class="c-black text-left">Clases</p>
-            </ion-item-divider>
-            <ion-item>
-                <ion-grid>
-                    <ion-row>
-                        <ion-col col-7 text-left>
-                                <span class="c-grey text-left">1 Abono - 4 clases - 1 persona</span>
-                        </ion-col>
-                        <ion-col col-3 text-right>
-                            <span class="c-green">$1200</span>
-                        </ion-col>
-                        <ion-col col-1>
-                            <ion-icon (click)="deletePrice()" color="danger" name="trash"></ion-icon>
-                        </ion-col>
-                        <ion-col col-1>
-                            <ion-icon (click)="openModal()" class="c-primary" name="settings"></ion-icon>
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-            </ion-item>
-        </ion-item-group>
+            <app-prices></app-prices>
         </div>
 
 </ion-content>

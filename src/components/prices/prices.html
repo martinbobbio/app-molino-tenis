@@ -1,0 +1,114 @@
+<ion-item-divider>
+    <ion-grid>
+            <ion-row>
+                <ion-col col-7 text-right>
+                    <h3 ion-text color="primary" style="font-size:20px;">Precios</h3>
+                </ion-col>
+                <ion-col col-3></ion-col>
+                <ion-col col-2 text-center>
+                    <ion-icon (click)="addPrice()" style="font-size:30px;" text-right color="secondary" name="add-circle"></ion-icon>
+                </ion-col>
+            </ion-row>
+    </ion-grid>
+</ion-item-divider>
+
+<ion-item-group>
+    <ion-item-divider>
+        <p class="c-black text-left">Clases</p>
+    </ion-item-divider>
+    <ng-container *ngFor="let price of prices">
+        <ion-item *ngIf="price.type == 'Clases'">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-7 text-left>
+                            <span class="c-grey text-left">{{price.title}}</span>
+                    </ion-col>
+                    <ion-col col-3 text-right>
+                        <span class="c-green">${{price.price}}</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="deletePrice(price)" color="danger" name="trash"></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="editPrice(price)" class="c-primary" name="settings"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ng-container>
+</ion-item-group>
+<ion-item-group>
+    <ion-item-divider>
+        <p class="c-black text-left">Articulos</p>
+    </ion-item-divider>
+    <ng-container *ngFor="let price of prices">
+        <ion-item *ngIf="price.type == 'Articulo'">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-7 text-left>
+                            <span class="c-grey text-left">{{price.title}}</span>
+                    </ion-col>
+                    <ion-col col-3 text-right>
+                        <span class="c-green">${{price.price}}</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="deletePrice(price)" color="danger" name="trash"></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="editPrice(price)" class="c-primary" name="settings"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ng-container>
+</ion-item-group>
+<ion-item-group>
+    <ion-item-divider>
+        <p class="c-black text-left">Promociones</p>
+    </ion-item-divider>
+    <ng-container *ngFor="let price of prices">
+        <ion-item *ngIf="price.type == 'Promoción'">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-7 text-left>
+                            <span class="c-grey text-left">{{price.title}}</span>
+                    </ion-col>
+                    <ion-col col-3 text-right>
+                        <span class="c-green">${{price.price}}</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="deletePrice(price)" color="danger" name="trash"></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="editPrice(price)" class="c-primary" name="settings"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ng-container>
+</ion-item-group>
+<ion-item-group>
+    <ion-item-divider>
+        <p class="c-black text-left">Otros</p>
+    </ion-item-divider>
+    <ng-container *ngFor="let price of prices">
+        <ion-item *ngIf="price.type == 'Otro'">
+            <ion-grid>
+                <ion-row>
+                    <ion-col col-7 text-left>
+                            <span class="c-grey text-left">{{price.title}}</span>
+                    </ion-col>
+                    <ion-col col-3 text-right>
+                        <span class="c-green">${{price.price}}</span>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="deletePrice(price)" color="danger" name="trash"></ion-icon>
+                    </ion-col>
+                    <ion-col col-1>
+                        <ion-icon (click)="editPrice(price)" class="c-primary" name="settings"></ion-icon>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ng-container>
+</ion-item-group>

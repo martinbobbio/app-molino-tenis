@@ -1,57 +1,42 @@
 <ion-content padding>
   <app-header [title]="title" [subtitle]="subtitle"></app-header>
-  
 
-  <ng-container *ngIf="method == 'edit'">
-    <br><br>
-    <h2 ion-text margin-top color="primary" class="bold">Editar precio</h2>
-
-    <ion-list>
-        
-      <ion-item>
-        <ion-label fixed>Nombre</ion-label>
-        <ion-input type="text" value="asd"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label fixed>Precio</ion-label>
-        <ion-input type="number" value="500"></ion-input>
-      </ion-item>
-
-      <div text-center margin-top>
-          <button ion-button round color="primary">Editar</button>
-      </div>
-
-    </ion-list>
-  </ng-container>
-
-  <ng-container *ngIf="method == 'add'">
     <br>
-    <h2 ion-text margin-top color="secondary" class="bold">Nuevo precio</h2>
+    <h2 *ngIf="method == 'add'" ion-text margin-top color="secondary" class="bold">Nuevo precio</h2>
+    <h2 *ngIf="method == 'edit'" ion-text margin-top color="primary" class="bold">Editar precio</h2>
 
-    <ion-item>
-        <ion-label fixed>Nombre</ion-label>
-        <ion-input type="text"></ion-input>
+    <form (ngSubmit)="submitForm()" [formGroup]="form" novalidate="novalidate" method="post">
+      <ion-item>
+        <ion-label *ngIf="method == 'add'" color="secondary" stacked>Título</ion-label>
+        <ion-label *ngIf="method == 'edit'" color="primary" stacked>Título</ion-label>      
+        <ion-input *ngIf="method == 'add'" formControlName="title" type="text"></ion-input>
+        <ion-input *ngIf="method == 'edit'" formControlName="title" [value]="params.get('title')" type="text"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label fixed>Precio</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-label *ngIf="method == 'add'" color="secondary" stacked>Precio</ion-label>
+        <ion-label *ngIf="method == 'edit'" color="primary" stacked>Precio</ion-label>
+        <ion-input *ngIf="method == 'add'" formControlName="price" type="number"></ion-input>
+        <ion-input *ngIf="method == 'edit'" [value]="params.get('price')" formControlName="price" type="number"></ion-input>
       </ion-item>
 
       <ion-list>
           <ion-item>
-              <ion-label>Elegir tipo</ion-label>
-              <ion-select [(ngModel)]="type" multiple="false" cancelText="Volver" okText="Elegir tipo">
-              <ion-option value="1" selected="true">Alquiler</ion-option>
-              <ion-option value="2">Clase de dani</ion-option>
+              <ion-label *ngIf="method == 'add'" color="secondary" stacked>Tipo</ion-label>
+              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Tipo</ion-label>
+              <ion-select formControlName="type" multiple="false" cancelText="Volver" okText="Elegir tipo">
+                <ion-option value="1" selected="true">Clase</ion-option>
+                <ion-option value="2">Artículo</ion-option>
+                <ion-option value="3">Promoción</ion-option>
+                <ion-option value="4">Otro</ion-option>
               </ion-select>
           </ion-item>
       </ion-list>
 
       <div text-center margin-top>
-          <button ion-button round color="secondary">Crear</button>
+          <button *ngIf="method == 'edit'" ion-button round color="primary">Editar</button>
+          <button *ngIf="method == 'add'" ion-button round color="secondary">Crear</button>
       </div>
-  </ng-container>
-
+    </form>
 
   <app-footer title="Volver" color="#e53935" modalDismiss=true></app-footer>
 </ion-content>
