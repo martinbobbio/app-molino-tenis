@@ -1,7 +1,7 @@
 <ion-content padding>
 
   <ng-container *ngIf="method == 'edit'">
-      <app-header [title]="title" [subtitle]="subtitle"></app-header>
+      <app-header [title]="title"></app-header>
   </ng-container>
   <ng-container *ngIf="method == 'add'">
       <app-header [title]="title"></app-header>
@@ -45,37 +45,69 @@
             <ion-select formControlName="hour" multiple="false" cancelText="Volver" okText="Aceptar">
               <ion-option *ngIf="method == 'add'" disabled="true" selected="true" value="-1">Elige hora</ion-option>
               <ion-option *ngIf="method == 'edit'" value="{{hour}}" selected="true">{{hour}} hs</ion-option>
-              <ion-option *ngIf="hour != '07:00'" value="07:00">07:00 hs</ion-option>
-              <ion-option *ngIf="hour != '07:30'" value="07:30">07:30 hs</ion-option>
-              <ion-option *ngIf="hour != '08:00'" value="08:00">08:00 hs</ion-option>
-              <ion-option *ngIf="hour != '08:30'" value="08:30">08:30 hs</ion-option>
-              <ion-option *ngIf="hour != '09:00'" value="09:00">09:00 hs</ion-option>
-              <ion-option *ngIf="hour != '09:30'" value="09:30">09:30 hs</ion-option>
-              <ion-option *ngIf="hour != '10:00'" value="10:00">10:00 hs</ion-option>
-              <ion-option *ngIf="hour != '10:30'" value="10:30">10:30 hs</ion-option>
-              <ion-option *ngIf="hour != '11:00'" value="11:00">11:00 hs</ion-option>
-              <ion-option *ngIf="hour != '11:30'" value="11:30">11:30 hs</ion-option>
-              <ion-option *ngIf="hour != '12:00'" value="12:00">12:00 hs</ion-option>
-              <ion-option *ngIf="hour != '12:30'" value="12:30">12:30 hs</ion-option>
-              <ion-option *ngIf="hour != '13:00'" value="13:00">13:00 hs</ion-option>
-              <ion-option *ngIf="hour != '13:30'" value="13:30">13:30 hs</ion-option>
-              <ion-option *ngIf="hour != '14:00'" value="14:00">14:00 hs</ion-option>
-              <ion-option *ngIf="hour != '14:30'" value="14:30">14:30 hs</ion-option>
-              <ion-option *ngIf="hour != '15:00'" value="15:00">15:00 hs</ion-option>
-              <ion-option *ngIf="hour != '15:30'" value="15:30">15:30 hs</ion-option>
-              <ion-option *ngIf="hour != '16:00'" value="16:00">16:00 hs</ion-option>
-              <ion-option *ngIf="hour != '16:30'" value="16:30">16:30 hs</ion-option>
-              <ion-option *ngIf="hour != '17:00'" value="17:00">17:00 hs</ion-option>
-              <ion-option *ngIf="hour != '17:30'" value="17:30">17:30 hs</ion-option>
-              <ion-option *ngIf="hour != '18:00'" value="18:00">18:00 hs</ion-option>
-              <ion-option *ngIf="hour != '18:30'" value="18:30">18:30 hs</ion-option>
-              <ion-option *ngIf="hour != '19:00'" value="19:00">19:00 hs</ion-option>
-              <ion-option *ngIf="hour != '19:30'" value="19:30">19:30 hs</ion-option>
-              <ion-option *ngIf="hour != '20:00'" value="20:00">20:00 hs</ion-option>
-              <ion-option *ngIf="hour != '20:30'" value="20:30">20:30 hs</ion-option>
-              <ion-option *ngIf="hour != '21:00'" value="21:00">21:00 hs</ion-option>
-              <ion-option *ngIf="hour != '21:30'" value="21:30">21:30 hs</ion-option>
-              <ion-option *ngIf="hour != '22:00'" value="22:00">22:00 hs</ion-option>
+              <ion-option *ngIf="hour != '07:00' && method == 'edit'" value="07:00">07:00 hs</ion-option>
+              <ion-option *ngIf="hour != '07:30' && method == 'edit'" value="07:30">07:30 hs</ion-option>
+              <ion-option *ngIf="hour != '08:00' && method == 'edit'" value="08:00">08:00 hs</ion-option>
+              <ion-option *ngIf="hour != '08:30' && method == 'edit'" value="08:30">08:30 hs</ion-option>
+              <ion-option *ngIf="hour != '09:00' && method == 'edit'" value="09:00">09:00 hs</ion-option>
+              <ion-option *ngIf="hour != '09:30' && method == 'edit'" value="09:30">09:30 hs</ion-option>
+              <ion-option *ngIf="hour != '10:00' && method == 'edit'" value="10:00">10:00 hs</ion-option>
+              <ion-option *ngIf="hour != '10:30' && method == 'edit'" value="10:30">10:30 hs</ion-option>
+              <ion-option *ngIf="hour != '11:00' && method == 'edit'" value="11:00">11:00 hs</ion-option>
+              <ion-option *ngIf="hour != '11:30' && method == 'edit'" value="11:30">11:30 hs</ion-option>
+              <ion-option *ngIf="hour != '12:00' && method == 'edit'" value="12:00">12:00 hs</ion-option>
+              <ion-option *ngIf="hour != '12:30' && method == 'edit'" value="12:30">12:30 hs</ion-option>
+              <ion-option *ngIf="hour != '13:00' && method == 'edit'" value="13:00">13:00 hs</ion-option>
+              <ion-option *ngIf="hour != '13:30' && method == 'edit'" value="13:30">13:30 hs</ion-option>
+              <ion-option *ngIf="hour != '14:00' && method == 'edit'" value="14:00">14:00 hs</ion-option>
+              <ion-option *ngIf="hour != '14:30' && method == 'edit'" value="14:30">14:30 hs</ion-option>
+              <ion-option *ngIf="hour != '15:00' && method == 'edit'" value="15:00">15:00 hs</ion-option>
+              <ion-option *ngIf="hour != '15:30' && method == 'edit'" value="15:30">15:30 hs</ion-option>
+              <ion-option *ngIf="hour != '16:00' && method == 'edit'" value="16:00">16:00 hs</ion-option>
+              <ion-option *ngIf="hour != '16:30' && method == 'edit'" value="16:30">16:30 hs</ion-option>
+              <ion-option *ngIf="hour != '17:00' && method == 'edit'" value="17:00">17:00 hs</ion-option>
+              <ion-option *ngIf="hour != '17:30' && method == 'edit'" value="17:30">17:30 hs</ion-option>
+              <ion-option *ngIf="hour != '18:00' && method == 'edit'" value="18:00">18:00 hs</ion-option>
+              <ion-option *ngIf="hour != '18:30' && method == 'edit'" value="18:30">18:30 hs</ion-option>
+              <ion-option *ngIf="hour != '19:00' && method == 'edit'" value="19:00">19:00 hs</ion-option>
+              <ion-option *ngIf="hour != '19:30' && method == 'edit'" value="19:30">19:30 hs</ion-option>
+              <ion-option *ngIf="hour != '20:00' && method == 'edit'" value="20:00">20:00 hs</ion-option>
+              <ion-option *ngIf="hour != '20:30' && method == 'edit'" value="20:30">20:30 hs</ion-option>
+              <ion-option *ngIf="hour != '21:00' && method == 'edit'" value="21:00">21:00 hs</ion-option>
+              <ion-option *ngIf="hour != '21:30' && method == 'edit'" value="21:30">21:30 hs</ion-option>
+              <ion-option *ngIf="hour != '22:00' && method == 'edit'" value="22:00">22:00 hs</ion-option>
+
+              <ion-option *ngIf="method == 'add'" value="07:00">07:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="07:30">07:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="08:00">08:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="08:30">08:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="09:00">09:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="09:30">09:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="10:00">10:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="10:30">10:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="11:00">11:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="11:30">11:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="12:00">12:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="12:30">12:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="13:00">13:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="13:30">13:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="14:00">14:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="14:30">14:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="15:00">15:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="15:30">15:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="16:00">16:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="16:30">16:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="17:00">17:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="17:30">17:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="18:00">18:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="18:30">18:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="19:00">19:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="19:30">19:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="20:00">20:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="20:30">20:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="21:00">21:00 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="21:30">21:30 hs</ion-option>
+              <ion-option *ngIf="method == 'add'" value="22:00">22:00 hs</ion-option>
             </ion-select>
           </ion-item>
       </ion-list>
@@ -85,13 +117,16 @@
             <ion-label *ngIf="method == 'add'" color="secondary" stacked>Cantidad de horas</ion-label>
             <ion-label *ngIf="method == 'edit'" color="primary" stacked>Cantidad de horas</ion-label>   
             <ion-select formControlName="hours" multiple="false" cancelText="Volver" okText="Aceptar">
-              <ion-option *ngIf="method == 'edit'" value="{{event.hours}}" selected="true">{{getHoursString(event.hours)}}</ion-option>
+              <ion-option *ngIf="method == 'edit'" value="1" selected="true">1 hora</ion-option>
               <ion-option *ngIf="method == 'add'" value="1" selected="true">1 hora</ion-option>
-              <ion-option *ngIf="method == 'edit' && hours != 1" value="1">1 hora</ion-option>
-              <ion-option *ngIf="hours != 2" value="2">1 hora y media</ion-option>
-              <ion-option *ngIf="hours != 3" value="3">2 horas</ion-option>
-              <ion-option *ngIf="hours != 4" value="4">2 horas y media</ion-option>
-              <ion-option *ngIf="hours != 5" value="5">3 horas</ion-option>
+              <ion-option *ngIf="method == 'edit'" value="2">1 hora y media</ion-option>
+              <ion-option *ngIf="method == 'edit'" value="3">2 horas</ion-option>
+              <ion-option *ngIf="method == 'edit'" value="4">2 horas y media</ion-option>
+              <ion-option *ngIf="method == 'edit'" value="5">3 horas</ion-option>
+              <ion-option *ngIf="method == 'add'" value="2">1 hora y media</ion-option>
+              <ion-option *ngIf="method == 'add'" value="3">2 horas y media</ion-option>
+              <ion-option *ngIf="method == 'add'" value="4">2 horas y media</ion-option>
+              <ion-option *ngIf="method == 'add'" value="5">3 horas</ion-option>
             </ion-select>
           </ion-item>
       </ion-list>

@@ -39,21 +39,23 @@
     </ng-container>
 
     <ng-container *ngIf="method == 'view'">
-        <ion-item *ngFor="let spend of spends">
-            <ion-grid>
-                <ion-row>
-                    <ion-col col-8 text-left>
-                            <span class="c-grey text-left">{{spend.title}} x {{spend.count}}</span>
-                    </ion-col>
-                    <ion-col col-3 text-right>
-                        <span class="c-green">${{spend.total}}</span>
-                    </ion-col>
-                    <ion-col col-1>
-                        <ion-icon (click)="deleteSpend(spend.id)" color="danger" name="trash"></ion-icon>
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-item>
+        <ion-content>
+            <ion-item *ngFor="let spend of spends">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-8 text-left>
+                                <span class="c-grey text-left">{{spend.title}} x {{spend.count}}</span>
+                        </ion-col>
+                        <ion-col col-3 text-right>
+                            <span class="c-green">${{spend.total}}</span>
+                        </ion-col>
+                        <ion-col col-1>
+                            <ion-icon (click)="deleteSpend(spend.id)" color="danger" name="trash"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-content>
     </ng-container>
 
 

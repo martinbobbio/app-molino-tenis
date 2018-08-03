@@ -11,13 +11,13 @@
 
         <ion-item>
             <ion-avatar item-start>
-            <img src="{{pathBack}}/images/{{userPhoto}}">
+            <img src="assets/imgs/{{notice.userPhoto}}">
             </ion-avatar>
             <h2 class="bold" ion-text color="primary">{{notice.firstname}} {{notice.lastname}}</h2>
             <p style="margin-top:4px;">{{notice.title}}</p>
         </ion-item>
 
-        <img *ngIf="notice.imgsrc" src="{{pathBack}}/{{notice.imgsrc}}">
+        <img *ngIf="notice.imgsrc" src="{{pathBackImg}}/{{notice.imgsrc}}">
 
         <ion-card-content>
             <p [innerHtml]="notice.description"></p>

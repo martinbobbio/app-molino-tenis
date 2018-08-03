@@ -37,7 +37,6 @@ export class ModalEventPage {
     this.start = params.get('start');
     this.end = params.get('end');
     this.method = params.get('method');
-    this.subtitle = `${moment(this.start).format('DD/MM | HH:mm')} a ${moment(this.end).format('HH:mm')}`;
     
     if(this.method == "add"){
       this.chargue = true
@@ -67,6 +66,7 @@ export class ModalEventPage {
     );
 
     if(this.method == "edit"){
+      this.title = "Editar Evento"
       let loading = this.loadingCtrl.create({
         content: 'Cargando evento'
       });

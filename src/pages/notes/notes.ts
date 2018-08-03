@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment'
 export class NotesPage {
 
   notes;
-  pathBack = environment.backUrl;
+  pathBackImg = environment.pathBackImg;
   userPhoto = localStorage.getItem("user_photo");
 
   constructor(public alertCtrl:AlertController,public modalCtrl:ModalController, public toastCtrl:ToastController, public noticeService:NoticeService, public loadingCtrl:LoadingController ) {
