@@ -1,0 +1,27 @@
+<ion-content padding>
+  <app-header title="Nueva nota"></app-header>
+
+    <br>
+    <h2 ion-text margin-top color="secondary" class="bold">Nuevo abono</h2>
+
+    <form (ngSubmit)="submitForm()" [formGroup]="form" novalidate="novalidate" method="post">
+      <ion-item>
+        <ion-label color="secondary" stacked>Persona</ion-label>
+        <ion-input formControlName="title" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary" stacked>Cantidad</ion-label>
+        <ion-input formControlName="count" type="number"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="secondary" stacked>Total</ion-label>
+        <ion-input formControlName="total" type="number"></ion-input>
+      </ion-item>
+
+      <div text-center margin-top>
+          <button ion-button round color="secondary">Crear</button>
+      </div>
+    </form>
+
+  <app-footer title="Volver" color="#e53935" modalDismiss=true></app-footer>
+</ion-content>

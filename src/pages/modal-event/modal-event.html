@@ -124,7 +124,7 @@
               <ion-option *ngIf="method == 'edit'" value="4">2 horas y media</ion-option>
               <ion-option *ngIf="method == 'edit'" value="5">3 horas</ion-option>
               <ion-option *ngIf="method == 'add'" value="2">1 hora y media</ion-option>
-              <ion-option *ngIf="method == 'add'" value="3">2 horas y media</ion-option>
+              <ion-option *ngIf="method == 'add'" value="3">2 horas</ion-option>
               <ion-option *ngIf="method == 'add'" value="4">2 horas y media</ion-option>
               <ion-option *ngIf="method == 'add'" value="5">3 horas</ion-option>
             </ion-select>
@@ -135,6 +135,8 @@
         <div *ngIf="method == 'edit'" (click)="deleteEvent()" ion-button round color="danger">Borrar</div>
         <button *ngIf="method == 'add'" type="submit" ion-button round color="secondary">Crear</button>
         <button *ngIf="method == 'edit'" type="submit" ion-button round color="primary">Editar</button>
+        <div *ngIf="method == 'edit' && suspended" (click)="suspend(0)" ion-button round color="dark">Cancelar suspención</div>
+        <div *ngIf="method == 'edit' && !suspended" (click)="suspend(1)" ion-button round color="dark">Suspender</div>
       </div>
 
   </form>

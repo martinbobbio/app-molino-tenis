@@ -1,0 +1,39 @@
+<ion-content>
+
+    <app-header title="Abonos"></app-header>
+    <br><br>
+
+    <div margin>
+        <button (click)="createFinance()" ion-button block outline color="primary">Crear abono</button>
+    </div>
+
+    <ion-item-group>
+        <ng-container *ngFor="let f of finances">
+            <ion-item>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-6 text-left>
+                                <span class="c-grey text-left">{{f.title}}</span>
+                        </ion-col>
+                        <ion-col col-2 text-left>
+                            <span class="c-green bold">{{f.count}}/{{f.total}}</span>
+                        </ion-col>
+                        <ion-col col-1>
+                            <ion-icon (click)="changueValue(1,f.count,f.id)" class="c-black" name="add"></ion-icon>
+                        </ion-col>
+                        <ion-col col-1>
+                            <ion-icon (click)="changueValue(0,f.count,f.id)" class="c-black" name="remove"></ion-icon>
+                        </ion-col>
+                        <ion-col col-1>
+                            <ion-icon (click)="changueValue(0,1,f.id, true)" color="primary" name="refresh"></ion-icon>
+                        </ion-col>
+                        <ion-col col-1>
+                            <ion-icon (click)="delete(f.id)" color="danger" name="trash"></ion-icon>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ng-container>
+    </ion-item-group>
+    
+</ion-content>

@@ -12,7 +12,7 @@ export class HistoryPage {
 
   constructor(public authService:AuthService, public loadingCtrl:LoadingController) {
     let loading = this.loadingCtrl.create({
-      content: 'Cargando historal'
+      content: 'Cargando historal...'
     });
     loading.present();
     this.authService.getLogs().subscribe(

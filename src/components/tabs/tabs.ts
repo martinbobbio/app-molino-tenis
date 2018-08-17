@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CalendarPage } from '../../pages/calendar/calendar';
 import { MoneyPage } from '../../pages/money/money';
-import { HistoryPage } from '../../pages/history/history';
+import { FinancePage } from '../../pages/finance/finance';
 import { NotesPage } from '../../pages/notes/notes';
 
 @Component({
@@ -12,7 +12,7 @@ export class TabsComponent {
 
   calendar = CalendarPage;
   prices = MoneyPage;
-  history = HistoryPage;
+  finance = FinancePage;
   notes = NotesPage;
 
   constructor() {

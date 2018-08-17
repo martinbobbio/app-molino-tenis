@@ -55,12 +55,14 @@ export class CalendarPage {
           right: 'month,agendaDay,list'
       },
         eventClick: function(calEvent, jsEvent, view) {
-            let modal = this_aux.modalCtrl.create(ModalEventPage, { id: calEvent.id, title: calEvent.title,
-              start: calEvent.start["_i"], end: calEvent.end["_i"], method: "edit" });
-            modal.present();
-            modal.onDidDismiss(data => {
-              this_aux.chargueEvents()
-           });
+            if(view.name == "list" || view.name == "agendaDay"){
+              let modal = this_aux.modalCtrl.create(ModalEventPage, { id: calEvent.id, title: calEvent.title,
+                start: calEvent.start["_i"], end: calEvent.end["_i"], method: "edit", is_suspended: calEvent.className });
+              modal.present();
+              modal.onDidDismiss(data => {
+                this_aux.chargueEvents()
+             });
+            }
           }
     })
   });
@@ -110,11 +112,17 @@ export class CalendarPage {
     this.eventService.getEvents().subscribe((response)=>{
       this.events = [];
       for (var e of response.data[0]) {
+        let className;
+        if(e.is_suspended)
+          className = "underline";
+        
         this.events.push({
           id : e.id,
-          title: e.type+ " - "+e.title,
+          title: `${e.type} ${e.title}`,
           start: e.date+"T"+e.hour+":00",
           end: e.date+"T"+this.checkHourEndEvent(this.calculateEndEvent(e.hour,e.hours))+":00",
+          color: '#'+e.color,
+          className: className
         })
       }
       loading.dismiss()

@@ -3,8 +3,8 @@
     <app-header title="Notas"></app-header>
     <br><br>
 
-    <div text-left margin-left margin-top>
-        <button (click)="createNotice()" ion-button round color="secondary">Crear nota</button>
+    <div margin>
+        <button (click)="createNotice()" ion-button block outline color="primary">Crear nota</button>
     </div>
 
     <ion-card *ngFor="let notice of notes">

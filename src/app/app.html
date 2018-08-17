@@ -1,1 +1,18 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="mycontent">
+  <ion-content>
+    <ion-list>
+        <ion-item margin padding>
+            <ion-avatar item-start>
+            <img src="assets/imgs/{{photo}}">
+            </ion-avatar>
+            <h2 ion-text color="primary" margin-right>{{username}}</h2>
+        </ion-item>
+    </ion-list>
+    <ion-list>
+        <ion-item (click)="goLogs()" color="primary">Historial</ion-item>
+        <ion-item (click)="logout()" color="primary">Salir</ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

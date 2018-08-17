@@ -1,6 +1,11 @@
 <ion-header>
   <ion-navbar *ngIf="title">
     <ion-title>{{title}}</ion-title>
+    <ion-buttons end>
+      <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
   <ion-toolbar *ngIf="subtitle">

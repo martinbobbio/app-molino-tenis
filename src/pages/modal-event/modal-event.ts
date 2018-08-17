@@ -4,8 +4,6 @@ import { FormGroup, FormControl } from '@angular/forms';
 import { EventService } from '../../providers/event/event.service';
 import * as $ from 'jquery';
 
-import * as moment from 'moment';
-
 @Component({
   selector: 'page-modal-event',
   templateUrl: 'modal-event.html'
@@ -20,6 +18,7 @@ export class ModalEventPage {
   type:string;
   hours:number = 1;
   hour:string;
+  suspended:boolean;
 
   titleString:string;
 
@@ -37,6 +36,10 @@ export class ModalEventPage {
     this.start = params.get('start');
     this.end = params.get('end');
     this.method = params.get('method');
+    if(params.get('is_suspended') == "underline")
+      this.suspended = true;
+    else
+      this.suspended = false;
     
     if(this.method == "add"){
       this.chargue = true
@@ -146,7 +149,7 @@ export class ModalEventPage {
             loading.present();
             this.eventService.deleteEvent(this.id).subscribe((response)=>{
               let toast = this.toastCtrl.create({
-                message: 'Has borrado la recaudacion',
+                message: 'Has borrado el evento',
                 duration: 3000,
                 position: 'bottom'
               });
@@ -159,6 +162,23 @@ export class ModalEventPage {
       ]
     });
     alert.present();
+  }
+
+  suspend(is_suspended){
+    let loading = this.loadingCtrl.create({
+      content: 'Suspendiendo...'
+    });
+    loading.present();
+    this.eventService.suspendEvent(this.id,is_suspended).subscribe((response)=>{
+      let toast = this.toastCtrl.create({
+        message: 'Has suspendido el evento',
+        duration: 3000,
+        position: 'bottom'
+      });
+      loading.dismiss();
+      toast.present();
+      this.viewCtrl.dismiss();
+    })
   }
 
 

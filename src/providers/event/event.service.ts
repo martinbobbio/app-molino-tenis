@@ -96,6 +96,23 @@ export class EventService {
     )
   }
 
+  suspendEvent(id,is_suspended){
+    
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    
+    let urlSearchParams = new URLSearchParams();
+    urlSearchParams.append('id', id);
+    urlSearchParams.append('is_suspended', is_suspended);
+    urlSearchParams.append('user_id', localStorage.getItem("user_id"));
+
+    let body = urlSearchParams.toString();
+
+    return this.http.post(`${this.backUrl}/api/events/suspend-event/`,body, {headers: headers}).map(
+      (response) => response.json()
+    )
+  }
+
   
 
  

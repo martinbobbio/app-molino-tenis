@@ -10,11 +10,13 @@ import { AuthService } from '../providers/auth/auth.service';
 import { MoneyService } from '../providers/money/money.service';
 import { EventService } from '../providers/event/event.service';
 import { NoticeService } from '../providers/notice/notice.service';
+import { FinanceService } from '../providers/finance/finance.service';
 
 import { MyApp } from './app.component';
 import { ModalEventPage } from '../pages/modal-event/modal-event';
 import { ModalPricePage } from '../pages/modal-price/modal-price';
 import { ModalSpendPage } from '../pages/modal-spend/modal-spend';
+import { ModalFinancePage } from '../pages/modal-finance/modal-finance';
 import { ModalNoticePage } from '../pages/modal-notice/modal-notice';
 import { HeaderComponent } from '../components/header/header';
 import { FooterComponent } from '../components/footer/footer';
@@ -25,6 +27,7 @@ import { MoneyPage } from '../pages/money/money';
 import { LoginPage } from '../pages/login/login';
 import { HistoryPage } from '../pages/history/history';
 import { NotesPage } from '../pages/notes/notes';
+import { FinancePage } from '../pages/finance/finance';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { NotesPage } from '../pages/notes/notes';
     HistoryPage,
     PricesComponent,
     NotesPage,
+    FinancePage,
     ModalNoticePage,
+    ModalFinancePage,
   ],
   imports: [
     BrowserModule,
@@ -64,7 +69,9 @@ import { NotesPage } from '../pages/notes/notes';
     ModalSpendPage,
     HistoryPage,
     NotesPage,
+    FinancePage,
     ModalNoticePage,
+    ModalFinancePage,
   ],
   providers: [
     StatusBar,
@@ -73,6 +80,7 @@ import { NotesPage } from '../pages/notes/notes';
     MoneyService,
     EventService,
     NoticeService,
+    FinanceService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

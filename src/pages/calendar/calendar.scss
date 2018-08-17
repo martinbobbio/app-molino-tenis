@@ -2,4 +2,9 @@ calendar {
     .fc-center{
         margin-top:20px;
     }
+    .underline .fc-list-item-title a {
+        text-decoration: line-through;
+    }
 }
+
+

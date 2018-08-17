@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NoticeService } from '../../providers/notice/notice.service'
 import { ModalNoticePage } from '../../pages/modal-notice/modal-notice'
-import { LoadingController, AlertController, ToastController, ModalController, Modal } from 'ionic-angular';
+import { LoadingController, AlertController, ToastController, ModalController } from 'ionic-angular';
 import { environment } from '../../environments/environment'
 
 @Component({
