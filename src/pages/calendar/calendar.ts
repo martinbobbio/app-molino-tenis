@@ -48,21 +48,22 @@ export class CalendarPage {
         monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
         dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
         dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
-        events: this_aux.events,
+        views: {
+          month: {
+          }
+        },
         header: {
           left: 'prev,next today,myCustomButton',
           center: 'title',
           right: 'month,agendaDay,list'
       },
         eventClick: function(calEvent, jsEvent, view) {
-            if(view.name == "list" || view.name == "agendaDay"){
-              let modal = this_aux.modalCtrl.create(ModalEventPage, { id: calEvent.id, title: calEvent.title,
-                start: calEvent.start["_i"], end: calEvent.end["_i"], method: "edit", is_suspended: calEvent.className });
-              modal.present();
-              modal.onDidDismiss(data => {
-                this_aux.chargueEvents()
-             });
-            }
+            let modal = this_aux.modalCtrl.create(ModalEventPage, { id: calEvent.id, title: calEvent.title,
+              start: calEvent.start["_i"], end: calEvent.end["_i"], method: "edit", is_suspended: calEvent.className });
+            modal.present();
+            modal.onDidDismiss(data => {
+              this_aux.chargueEvents()
+            });
           }
     })
   });

@@ -5,6 +5,12 @@ calendar {
     .underline .fc-list-item-title a {
         text-decoration: line-through;
     }
+    .fc-month-view{
+        width: 300%;
+    }
+    .fc-view-container{
+        overflow-x: scroll;
+    }
 }
 
 
