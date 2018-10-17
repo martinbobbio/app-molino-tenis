@@ -29,5 +29,8 @@ calendar {
     .fc-agendaDay-view .fc-day-grid{
       display: none;
     }
+    .underline .fc-title{
+      text-decoration: line-through;
+    }
 
 }

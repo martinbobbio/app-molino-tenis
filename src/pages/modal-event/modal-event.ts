@@ -48,7 +48,7 @@ export class ModalEventPage {
         $(".datetime-text").removeClass("datetime-placeholder");
       }, 500);
       if(params.get('hour')){
-        this.hour = params.get('hour')
+        this.hour = params.get('hour')+":00";
       }
     }
     this.form = new FormGroup({

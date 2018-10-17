@@ -47,7 +47,7 @@
               <ion-label *ngIf="method == 'edit'" color="primary" stacked>Hora</ion-label>
               <ion-select formControlName="hour" multiple="false" cancelText="Volver" okText="Aceptar">
                 <ion-option *ngIf="method == 'add' && !hour" disabled="true" selected="true" value="-1">Elige hora</ion-option>
-                <ion-option *ngIf="method == 'add' && hour" disabled="true" selected="true">{{hour}}:00 hs</ion-option>
+                <ion-option *ngIf="method == 'add' && hour" disabled="true" selected="true">{{hour}} hs</ion-option>
                 <ion-option *ngIf="method == 'edit'" value="{{hour}}" selected="true">{{hour}} hs</ion-option>
                 <ion-option *ngIf="hour != '07:00' && method == 'edit'" value="07:00">07:00 hs</ion-option>
                 <ion-option *ngIf="hour != '07:30' && method == 'edit'" value="07:30">07:30 hs</ion-option>
