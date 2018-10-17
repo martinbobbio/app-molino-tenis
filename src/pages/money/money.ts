@@ -9,7 +9,7 @@ import { ModalController, LoadingController } from 'ionic-angular';
 })
 export class MoneyPage {
 
-  month:string = "08"
+  month:string = "09"
   monthString:string = ""
   monthAmount:number = 0
 

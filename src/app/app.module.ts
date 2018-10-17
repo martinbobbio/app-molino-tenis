@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { OneSignal } from '@ionic-native/onesignal';
 
 import { AuthService } from '../providers/auth/auth.service';
 import { MoneyService } from '../providers/money/money.service';
@@ -19,6 +20,7 @@ import { ModalSpendPage } from '../pages/modal-spend/modal-spend';
 import { ModalFinancePage } from '../pages/modal-finance/modal-finance';
 import { ModalNoticePage } from '../pages/modal-notice/modal-notice';
 import { HeaderComponent } from '../components/header/header';
+import { PricesPage } from '../pages/prices/prices';
 import { FooterComponent } from '../components/footer/footer';
 import { TabsComponent } from '../components/tabs/tabs';
 import { PricesComponent } from '../components/prices/prices';
@@ -48,6 +50,7 @@ import { FinancePage } from '../pages/finance/finance';
     FinancePage,
     ModalNoticePage,
     ModalFinancePage,
+    PricesPage,
   ],
   imports: [
     BrowserModule,
@@ -72,6 +75,7 @@ import { FinancePage } from '../pages/finance/finance';
     FinancePage,
     ModalNoticePage,
     ModalFinancePage,
+    PricesPage,
   ],
   providers: [
     StatusBar,
@@ -81,6 +85,7 @@ import { FinancePage } from '../pages/finance/finance';
     EventService,
     NoticeService,
     FinanceService,
+    OneSignal,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

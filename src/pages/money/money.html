@@ -8,8 +8,8 @@
                     <ion-label>Elegir mes</ion-label>
                     <ion-select (ngModelChange)="changeMonth($event)" [(ngModel)]="month" multiple="false" cancelText="Volver" okText="Elegir">
                     <ion-option value="07">Julio</ion-option>
-                    <ion-option value="08" selected="true">Agosto</ion-option>
-                    <ion-option value="09">Septiembre</ion-option>
+                    <ion-option value="08">Agosto</ion-option>
+                    <ion-option value="09" selected="true">Septiembre</ion-option>
                     <ion-option value="10">Octubre</ion-option>
                     <ion-option value="11">Noviembre</ion-option>
                     <ion-option value="12">Diciembre</ion-option>
@@ -24,7 +24,6 @@
             </div>
             <br>
 
-            <app-prices></app-prices>
         </div>
 
 </ion-content>

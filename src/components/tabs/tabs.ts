@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CalendarPage } from '../../pages/calendar/calendar';
-import { MoneyPage } from '../../pages/money/money';
+import { PricesPage } from '../../pages/prices/prices';
 import { FinancePage } from '../../pages/finance/finance';
 import { NotesPage } from '../../pages/notes/notes';
 
@@ -11,7 +11,7 @@ import { NotesPage } from '../../pages/notes/notes';
 export class TabsComponent {
 
   calendar = CalendarPage;
-  prices = MoneyPage;
+  prices = PricesPage;
   finance = FinancePage;
   notes = NotesPage;
 

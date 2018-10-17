@@ -22,14 +22,18 @@ export class CalendarPage {
     $(function() {
       $('#calendar').fullCalendar({
         themeSystem: 'bootstrap3',
-        defaultView: 'list',
+        defaultView: 'agendaDay',
         height: 500,
+        minTime: "09:00:00",
+        maxTime: "23:59:00",
         timeFormat: 'HH:mm',
+        slotLabelFormat:'HH:mm',
         customButtons: {
           myCustomButton: {
             text: 'Agregar...',
             click: function() {
-              let modal = this_aux.modalCtrl.create(ModalEventPage, { method: "add", title: "Nuevo evento" });
+              let currentDate = $('#calendar').fullCalendar('getDate').format('YYYY-MM-DD');
+              let modal = this_aux.modalCtrl.create(ModalEventPage, { method: "add", title: "Nuevo evento", date: currentDate });
               modal.present();
               modal.onDidDismiss(data => {
                 this_aux.chargueEvents()
@@ -50,6 +54,7 @@ export class CalendarPage {
         dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
         views: {
           month: {
+
           }
         },
         header: {
@@ -64,9 +69,21 @@ export class CalendarPage {
             modal.onDidDismiss(data => {
               this_aux.chargueEvents()
             });
+        },
+        dayClick: function(date, jsEvent, view) {
+          if(view.name == "agendaDay"){
+            let currentDate = date.format('YYYY-MM-DD');
+            let currentHour = date.format('HH');
+            let modal = this_aux.modalCtrl.create(ModalEventPage, { method: "add", title: "Nuevo evento", date: currentDate, hour:currentHour });
+            modal.present();
+            modal.onDidDismiss(data => {
+              this_aux.chargueEvents()
+           });
           }
+        }
     })
   });
+
   }
 
   calculateEndEvent(hour,hours){
@@ -94,7 +111,7 @@ export class CalendarPage {
       if(hours == 5)
         return Number(hour.split(":")[0])+3+":30"
     }
-    
+
   }
 
   checkHourEndEvent(hour){
@@ -116,7 +133,7 @@ export class CalendarPage {
         let className;
         if(e.is_suspended)
           className = "underline";
-        
+
         this.events.push({
           id : e.id,
           title: `${e.type} ${e.title}`,
@@ -129,7 +146,7 @@ export class CalendarPage {
       loading.dismiss()
       $(function() {
         $('#calendar').fullCalendar('removeEvents');
-        $('#calendar').fullCalendar( 'addEventSource', this_aux.events);         
+        $('#calendar').fullCalendar( 'addEventSource', this_aux.events);
         $('#calendar').fullCalendar( 'rerenderEvents' );
       })
     })

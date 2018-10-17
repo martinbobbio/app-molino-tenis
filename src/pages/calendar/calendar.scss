@@ -11,6 +11,23 @@ calendar {
     .fc-view-container{
         overflow-x: scroll;
     }
+    .fc-toolbar h2{
+      color:#488aff;
+    }
+    .fc-toolbar button, .fc-next-button:hover, .fc-prev-button:hover{
+      background:#488aff;
+      color:white;
+    }
+    .fc-toolbar button.active, .fc-toolbar button.active:hover{
+      background:#32db64;
+      color:white;
+    }
+    .fc-today-button.disabled, .fc-today-button.disabled:hover {
+      background:#32db64;
+      color:white;
+    }
+    .fc-agendaDay-view .fc-day-grid{
+      display: none;
+    }
+
 }
-
-

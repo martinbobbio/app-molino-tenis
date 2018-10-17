@@ -14,7 +14,7 @@ export class ModalEventPage {
   id:number;
   start:any;
   end:any;
-  types;
+  types:any;
   type:string;
   hours:number = 1;
   hour:string;
@@ -26,7 +26,7 @@ export class ModalEventPage {
   subtitle:string;
 
   chargue:boolean = false;
-  event;
+  event:any;
 
   form:FormGroup;
 
@@ -40,11 +40,17 @@ export class ModalEventPage {
       this.suspended = true;
     else
       this.suspended = false;
-    
-    if(this.method == "add"){
-      this.chargue = true
-    }
 
+    if(this.method == "add"){
+      this.chargue = true;
+      setTimeout(() => {
+        $(".datetime-text").text(params.get('date'));
+        $(".datetime-text").removeClass("datetime-placeholder");
+      }, 500);
+      if(params.get('hour')){
+        this.hour = params.get('hour')
+      }
+    }
     this.form = new FormGroup({
       'title': new FormControl(),
       'type': new FormControl(),
@@ -54,17 +60,17 @@ export class ModalEventPage {
     })
 
     this.eventService.getTypeEvents().subscribe((response)=>{
-      this.types = response.data[0]
-      this.form.controls['type'].valueChanges.subscribe(index => 
+      this.types = response.data[0];
+      this.form.controls['type'].valueChanges.subscribe(index =>
         this.type = this.types[index].title
       );
     })
 
-    this.form.controls['hours'].valueChanges.subscribe(index => 
+    this.form.controls['hours'].valueChanges.subscribe(index =>
       this.hours = index
     );
 
-    this.form.controls['hour'].valueChanges.subscribe(index => 
+    this.form.controls['hour'].valueChanges.subscribe(index =>
       this.hour = index
     );
 
@@ -88,7 +94,7 @@ export class ModalEventPage {
         this.chargue = true;
       })
     }
-    
+
   }
 
   submitForm(){

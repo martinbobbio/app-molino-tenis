@@ -13,29 +13,30 @@
     <form *ngIf="chargue" (ngSubmit)="submitForm()" [formGroup]="form" novalidate="novalidate" method="post">
 
         <ion-item>
-          <ion-label *ngIf="method == 'add'" color="secondary" stacked>Título</ion-label>   
-          <ion-label *ngIf="method == 'edit'" color="primary" stacked>Título</ion-label>      
+          <ion-label *ngIf="method == 'add'" color="secondary" stacked>Título</ion-label>
+          <ion-label *ngIf="method == 'edit'" color="primary" stacked>Título</ion-label>
           <ion-input *ngIf="method == 'add'" formControlName="title" type="text"></ion-input>
           <ion-input *ngIf="method == 'edit'" formControlName="title" type="text" value="{{titleString}}"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label *ngIf="method == 'add'" color="secondary" stacked>Fecha</ion-label> 
-          <ion-label *ngIf="method == 'edit'" color="primary" stacked>Fecha</ion-label>  
-          <ion-datetime value="2018-12-23" displayFormat="YYYY-MM-DD" formControlName="date"></ion-datetime>
+          <ion-label *ngIf="method == 'add'" color="secondary" stacked>Fecha</ion-label>
+          <ion-label *ngIf="method == 'edit'" color="primary" stacked>Fecha</ion-label>
+          <ion-datetime displayFormat="YYYY-MM-DD" formControlName="date"></ion-datetime>
         </ion-item>
 
         <ion-list>
             <ion-item>
               <ion-label *ngIf="method == 'add'" color="secondary" stacked>Tipo de evento</ion-label>
-              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Tipo de evento</ion-label>   
+              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Tipo de evento</ion-label>
+
               <ion-select formControlName="type" multiple="false" cancelText="Volver" okText="Aceptar">
-                <ion-option *ngIf="method == 'add'" disabled="true" selected="true" value="-1">Elije el tipo</ion-option>
+                <ion-option id="chargueText" *ngIf="method == 'add'" disabled="true" selected="true" value="-1">Tipo de evento</ion-option>
                 <ion-option *ngIf="method == 'edit'" value="{{type}}" selected="true">{{type}}</ion-option>
                 <ng-container *ngFor="let type of types;let i = index">
                     <ion-option *ngIf="type != type.title" value="{{i}}">{{type.title}}</ion-option>
                 </ng-container>
-                
+
               </ion-select>
             </ion-item>
         </ion-list>
@@ -43,9 +44,10 @@
         <ion-list>
             <ion-item>
               <ion-label *ngIf="method == 'add'" color="secondary" stacked>Hora</ion-label>
-              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Hora</ion-label>   
+              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Hora</ion-label>
               <ion-select formControlName="hour" multiple="false" cancelText="Volver" okText="Aceptar">
-                <ion-option *ngIf="method == 'add'" disabled="true" selected="true" value="-1">Elige hora</ion-option>
+                <ion-option *ngIf="method == 'add' && !hour" disabled="true" selected="true" value="-1">Elige hora</ion-option>
+                <ion-option *ngIf="method == 'add' && hour" disabled="true" selected="true">{{hour}}:00 hs</ion-option>
                 <ion-option *ngIf="method == 'edit'" value="{{hour}}" selected="true">{{hour}} hs</ion-option>
                 <ion-option *ngIf="hour != '07:00' && method == 'edit'" value="07:00">07:00 hs</ion-option>
                 <ion-option *ngIf="hour != '07:30' && method == 'edit'" value="07:30">07:30 hs</ion-option>
@@ -117,7 +119,7 @@
         <ion-list>
             <ion-item>
               <ion-label *ngIf="method == 'add'" color="secondary" stacked>Cantidad de horas</ion-label>
-              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Cantidad de horas</ion-label>   
+              <ion-label *ngIf="method == 'edit'" color="primary" stacked>Cantidad de horas</ion-label>
               <ion-select formControlName="hours" multiple="false" cancelText="Volver" okText="Aceptar">
                 <ion-option *ngIf="method == 'edit'" value="1" selected="true">1 hora</ion-option>
                 <ion-option *ngIf="method == 'add'" value="1" selected="true">1 hora</ion-option>
@@ -144,7 +146,7 @@
     </form>
     </ion-content>
 
-  
+
 </ion-content>
 
 <app-footer title="Volver" color="#e53935" modalDismiss=true></app-footer>

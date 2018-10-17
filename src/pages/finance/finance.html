@@ -13,7 +13,8 @@
                 <ion-grid>
                     <ion-row>
                         <ion-col col-6 text-left>
-                                <span class="c-grey text-left">{{f.title}}</span>
+                                <p class="c-primary bold text-left">{{f.title}}</p>
+                                <p class="c-grey fs-11 text-left">{{f.lastDate}}hs <ion-icon name="create"></ion-icon></p>
                         </ion-col>
                         <ion-col col-2 text-left>
                             <span class="c-green bold">{{f.count}}/{{f.total}}</span>
@@ -35,5 +36,5 @@
             </ion-item>
         </ng-container>
     </ion-item-group>
-    
+
 </ion-content>

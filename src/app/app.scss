@@ -8,7 +8,7 @@
     color: #4caf50;
 }
 .c-primary{
-    color: #488aff;
+    color: #488aff !important;
 }
 .bold{
     font-weight: bold;
@@ -27,4 +27,7 @@
 }
 .text-center{
     text-align: center;
+}
+.fs-11{
+  font-size: 11px !important;
 }

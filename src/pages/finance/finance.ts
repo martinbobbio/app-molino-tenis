@@ -52,7 +52,7 @@ export class FinancePage {
         this.chargueFinances();
       })
     }
-    
+
   }
 
   delete(id){
@@ -99,14 +99,15 @@ export class FinancePage {
 
   chargueFinances(){
     let loading = this.loadingCtrl.create({
-      content: 'Cargando historal...'
+      content: 'Cargando abonos...'
     });
     loading.present();
     this.financeService.getFinances().subscribe((response)=>{
       this.finances = response.data[0];
-      loading.dismiss();      
+      console.log(this.finances);
+      loading.dismiss();
     })
   }
-  
+
 
 }
