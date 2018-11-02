@@ -14,8 +14,9 @@ Utilizada para administrar reservas, clases, alquileres, abonos, etc
 
 ## Capturas
 
-![Image of pagina](src/assets/imgs/screen1.png)
-![Image of pagina](src/assets/imgs/screen2.png)
 ![Image of pagina](src/assets/imgs/screen3.png)
 ![Image of pagina](src/assets/imgs/screen4.png)
+![Image of pagina](src/assets/imgs/screen1.png)
+![Image of pagina](src/assets/imgs/screen2.png)
+
 
