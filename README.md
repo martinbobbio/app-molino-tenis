@@ -23,15 +23,15 @@ Utilizada para administrar reservas, clases, alquileres, abonos, etc
 
 ![Image of pagina](src/assets/imgs/screen4.png)
 
-### Precios
+### Noticias
 
 ![Image of pagina](src/assets/imgs/screen3.png)
 
-### Abonos
+### Precios
 
 ![Image of pagina](src/assets/imgs/screen1.png)
 
-### Eventos
+### Abonos
 
 ![Image of pagina](src/assets/imgs/screen2.png)
 
