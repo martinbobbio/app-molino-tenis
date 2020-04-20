@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  apiUrl:"http://www.tennis-star.com",
-  backUrl:"http://admin-tenis.tennis-star.com/web/app_dev.php",
-  uploaderUrl:"http://admin-tenis.tennis-star.com/web/app_dev.php/_uploader/users/upload",
+  apiUrl:"http://192.168.99.100:4201",
+  backUrl:"http://192.168.99.100:8081",
+  uploaderUrl:"http://192.168.99.100:8081/_uploader/users/upload",
 };
